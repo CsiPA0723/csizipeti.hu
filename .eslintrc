@@ -1,0 +1,88 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
+  "ignorePatterns": [
+    "src/assets/**/*.json",
+    "src/styles.scss",
+    "src/assets/**/*.scss",
+    "src/**/*.scss",
+    "src/manifest.webmanifest",
+    "src/assets/**/*.yaml",
+    "src/assets/**/*.png",
+    "src/assets/**/*.jpg",
+    "src/assets/**/*.svg",
+    "src/favicon.ico"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+         "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:rxjs/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["rxjs"],
+      "rules": {
+        "rxjs/no-ignored-observable": "error",
+        "rxjs/finnish": [
+          "warn",
+          {
+            "functions": true,
+            "methods": false,
+            "names": {
+              "^(canActivate|canActivateChild|canDeactivate|canLoad|intercept|resolve|validate)$": false
+            },
+            "parameters": true,
+            "properties": true,
+            "strict": false,
+            "types": {
+              "^EventEmitter$": false
+            },
+            "variables": true
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        "@angular-eslint/template/no-call-expression": "warn",
+        "prettier/prettier": [
+          "error",
+          { "parser": "angular" },
+          { "endOfLine": "auto" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "printWidth": 80,
+  "singleAttributePerLine": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "endOfLine": "auto"
+}
